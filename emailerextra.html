@@ -1,0 +1,38 @@
+
+<html>
+
+	<head>
+		<title>Mass Emailer Update</title>
+	</head>
+
+	<body>
+		<form name="formex">
+			<input type="checkbox" name="massemailer" onClick="numTxt();"/>Mass Emailer</br>
+			<input type="checkbox" name="fakeemailer" onClick="fromTxt();"/>Fake Emailer</br>
+		</form>
+		<script language="javascript" type="text/javascript">
+			<!-- Hide javascript
+
+				function numTxt(){
+					document.getElementById('numtxt').visibility=(document.formex.massemailer.checked) ? "visible" : "hidden";
+					return true;
+
+				}
+
+				function fromTxt(){
+					document.getElementById('fromtxt').visibility=(document.formex.fakeemailer.checked) ? "visible" : "hidden";
+					return true;
+
+				}
+
+			-->
+		</script>
+
+		<noscript>This page requires JavaScrpit</noscript>
+
+		<p id="fromtxt">From: <input name="from" type="text"></p>
+		<p id="numtxt">How many emails: <input name="times" type="text"></p>
+
+		
+	</body>
+</html>

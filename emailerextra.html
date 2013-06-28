@@ -1,9 +1,19 @@
 
+<!-- 
+I make reference to the emailing script that is found at http://neolablearn.host.dev4web.co/bhekanik/sitecontent.php
+
+I want to update my emailing script page such that there are two checkboxes at the top of the page one for turning on the from textbox and one for turning on the 'number of emails' checkbox. This way someone who just wants to send one email as someone else gets the from field along with the other static fields because they have no need of the 'number of emails' field because they are just sending one email per recipient. If someone just wants to send many emails to someone they don't have need for the 'From' field since all they want to do is flood someone's inbox. At the same time if someone needs to perform both these actions they simply select both checkboxes.
+
+i extracted the part of the code that writes the page which is where I want to make the changes that are described above.
+
+Later I each of the three checkbox cases to lead to different code so that someone who wants to fake an email does not get the number at the end of the email address that i added for the mass emails so that they are recognised as coming from different recipients and are not bundled. -->
+
 <html>
 
 	<head>
 		<title>Mass Emailer Update</title>
 
+		<!-- Here the style tag just ensures that the two checkboxes in question; 'from' and 'number of emails', are not visible when the page loads -->
 		<style>
 			#first {
 				visibility: hidden;
@@ -17,14 +27,14 @@
 
 	<body>
 		
-		<div class="overallwrap">
 			<h1>Mass Emailer</h1>
-
 
 			<form>
 				<script language="javascript" type="text/javascript">
 				<!-- Hide javascript
 
+					// This is the function that toggles the visibility property/style of the
+					// elements in question depending on whether the checkboxes are checked or not.
 					function showPara(){
 						document.getElementById("first").style.visibility=(document.formex.firstpara.checked) ? "visible" : "hidden";
 						document.getElementById("second").style.visibility=(document.formex.secondpara.checked) ? "visible" : "hidden";
@@ -35,12 +45,15 @@
 
 				<noscript>This page requires JavaScrpit</noscript>
 
+				<!-- These are the two checkboxes in question. -->
 				<form name="formex">
 					<input type="checkbox" name="firstpara" onClick="showPara();"/>Fake Emailer </br>
 					<input type="checkbox" name="secondpara" onClick="showPara();"/>Mass Emailer </br>
 				</form>
 
 				Fill in all of the following fields with appropriate values and click the Submit button.</br>
+				<!-- These are the textboxes and as part of them are the textboxes of concern, ie 
+				from and times. -->
 				<p>To: <input name="to" type="text"></p>
 				<p>Subject: <input name="subject" type="text"></p>
 				<p id="first">From: <input name="from" type="text"></p>
@@ -48,6 +61,5 @@
 				<p id="second">How many emails: <input name="times" type="text"></p>
 				<p><input name="send" type="submit" method="GET"></p>
 			</form>
-		</div>
 	</body>
 </html>

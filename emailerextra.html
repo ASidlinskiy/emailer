@@ -3,39 +3,51 @@
 
 	<head>
 		<title>Mass Emailer Update</title>
+
+		<style>
+			#first {
+				visibility: hidden;
+			}
+
+			#second {
+				visibility: hidden;
+			}
+		</style>
 	</head>
 
 	<body>
-		<!-- Create two checkboxes that will be used to select what module the page
-			should display, whether the mass emailer or the fake emailer -->
-		<form name="formex">
-			<input type="checkbox" name="massemailer" onClick="numTxt();"/>Mass Emailer</br>
-			<input type="checkbox" name="fakeemailer" onClick="fromTxt();"/>Fake Emailer</br>
-		</form>
-
-		<script language="javascript" type="text/javascript">
-			<!-- Hide javascript
-
-				function numTxt(){
-					document.getElementById('numtxt').visibility=(document.formex.massemailer.checked) ? "visible" : "hidden";
-					return true;
-
-				}
-
-				function fromTxt(){
-					document.getElementById('fromtxt').visibility=(document.formex.fakeemailer.checked) ? "visible" : "hidden";
-					return true;
-
-				}
-
-			-->
-		</script>
-
-		<noscript>This page requires JavaScrpit</noscript>
-
-		<p id="fromtxt">From: <input name="from" type="text"></p>
-		<p id="numtxt">How many emails: <input name="times" type="text"></p>
-
 		
+		<div class="overallwrap">
+			<h1>Mass Emailer</h1>
+
+
+			<form>
+				<script language="javascript" type="text/javascript">
+				<!-- Hide javascript
+
+					function showPara(){
+						document.getElementById("first").style.visibility=(document.formex.firstpara.checked) ? "visible" : "hidden";
+						document.getElementById("second").style.visibility=(document.formex.secondpara.checked) ? "visible" : "hidden";
+						return true;
+					}
+				-->
+				</script>
+
+				<noscript>This page requires JavaScrpit</noscript>
+
+				<form name="formex">
+					<input type="checkbox" name="firstpara" onClick="showPara();"/>Fake Emailer </br>
+					<input type="checkbox" name="secondpara" onClick="showPara();"/>Mass Emailer </br>
+				</form>
+
+				Fill in all of the following fields with appropriate values and click the Submit button.</br>
+				<p>To: <input name="to" type="text"></p>
+				<p>Subject: <input name="subject" type="text"></p>
+				<p id="first">From: <input name="from" type="text"></p>
+				<p>Body: <textarea name="body" type="text" size="500"></textarea></p>
+				<p id="second">How many emails: <input name="times" type="text"></p>
+				<p><input name="send" type="submit" method="GET"></p>
+			</form>
+		</div>
 	</body>
 </html>
